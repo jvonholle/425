@@ -1,0 +1,8 @@
+Employee_id,Position_type,Game_date,Game_Home,Game_Visitor
+10,Referee,"2017-01-04 22:00:00",Bovines,Heifers
+20,Referee,"2017-01-05 12:00:00",Bovines,Heifers
+21,Referee,"2017-01-06 22:00:00",HayStackers,"Cow Patties"
+22,Referee,"2017-01-07 12:00:00",Heifers,"Cow Patties"
+23,Referee,"2017-01-08 22:00:00","Cow Patties",Bovines
+8,Scorekeeper,"2017-01-02 12:00:00",HayStackers,Bovines
+9,Timekeeper,"2017-01-03 22:00:00",Heifers,"Cow Patties"

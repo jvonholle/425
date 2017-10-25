@@ -1,0 +1,8 @@
+Employee_id,number,Team_name,start_date,end_date
+11,63,HayStackers,2016-03-04,2017-05-12
+12,06,"Cow Patties",2016-03-05,NULL
+13,82,Bovines,2016-03-06,NULL
+14,85,Heifers,2016-03-07,NULL
+15,93,HayStackers,2016-03-08,NULL
+16,55,"Cow Patties",2016-03-09,NULL
+17,86,Bovines,2016-03-10,NULL

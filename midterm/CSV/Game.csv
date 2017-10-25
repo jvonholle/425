@@ -1,0 +1,8 @@
+date,Home,home_score,Visitor,visitor_score
+"2017-01-02 22:00:00",HayStackers,10,Bovines,16
+"2017-01-03 12:00:00",Heifers,11,"Cow Patties",0
+"2017-01-04 22:00:00",Bovines,12,Heifers,76
+"2017-01-05 12:00:00",Bovines,13,Heifers,19
+"2017-01-06 22:00:00",HayStackers,14,"Cow Patties",3
+"2017-01-07 12:00:00",Heifers,15,"Cow Patties",21
+"2017-01-08 22:00:00","Cow Patties",16,Bovines,13

@@ -1,0 +1,53 @@
+id,Location_type,street,city,zip,State_name
+1,Physical,513 Ambler Lane,Fairbanks,99775,Alaska
+1,Mailing,5 Tom Lane,North Pole,99775,Alaska
+2,Physical,6 Canyon East,Dover,99776,Rhode Island 
+2,Mailing,64 Kenelm Canyon East,Rover,99776,Rhode Island 
+3,Physical,987 Rhoy Terrace,Charleston,99777,South Carolina 
+3,Mailing,11 Schroy Terrace,Greensville,99777,South Carolina 
+4,Physical,45724 Branding Iron Quay Southwest,Pierre,99778,South Dakota 
+4,Mailing,4 Branding Iron Southwest,Butte Bluff,99778,South Dakota 
+5,Physical,10 Firtree Park Bay,Chattanooga,99779,Tennessee 
+5,Mailing,987 North Firtree Park Bay,Crawdad Creek,99779,Tennessee 
+6,Physical,23 Bro Trail,Grand Prairie,99780,Texas 
+6,Mailing,45 Broadlands Trail,Scab's Corner,99780,Texas 
+7,Physical,9 Srout Row East,Bryce,99781,Utah 
+7,Mailing,3415 Cutacre Row East,Logan,99781,Utah 
+8,Physical,2 Blast Arch East,Burlington,99782,Vermont 
+8,Mailing,2151451 Astrodome Arch East,Montpelier,99782,Vermont 
+9,Physical,467 Damson Nook,Roanoke,99783,Virginia 
+9,Mailing,23 Damson Crook,Richmond,99783,Virginia 
+10,Physical,1 Ringcook Vale,Vancouver,99784,Washington 
+10,Mailing,234 Springbrook Vale,Spokane,99784,Washington 
+11,Physical,6 St Cuthberts Terrace,Charleston,99785,West Virginia 
+11,Mailing,7 St Rutherts Terrace,Charlottesville,99785,West Virginia 
+12,Physical,90 North Fall Brook Townline,Madison,99786,Wisconsin 
+12,Mailing,910 North Wall Brook St,Dunchano,99786,Wisconsin 
+13,Physical,34351 Gasket Plaza,Gobbler's Bluff,99787,Wyoming
+13,Mailing,8 Basket Plaza,Cheyenne,99787,Wyoming
+14,Physical,7 Scranton Hill Bypass,Omaha,99788,Nebraska
+14,Mailing,273 Stratton Hill Bypass,Lincoln,99788,Nebraska
+15,Physical,981 Norwell Trace,Cobbler,99789,Iowa
+15,Mailing,98 Jordell Trace,Des Moines,99789,Iowa
+16,Physical,384 West Gourley Drive,Cleveland,99790,Ohio
+16,Mailing,67 East Mourley Drive,Columbus,99790,Ohio
+17,Physical,24 Northeast Group Route,Indianapolis,99791,Indiana
+17,Mailing,68743 Northeast Loop Route,Pruitt,99791,Indiana
+18,Physical,12 Buckle My Shoe,Montgomery,88694,Alabama
+18,Mailing,21 Buckle My Shoelace,Lower,88694,Alabama
+19,Physical,34 Shut De Do,San Francisco,33216,California
+19,Mailing,43 Shut De Screen,Los Angeles,33216,California
+20,Physical,65 Pick Up Twigs,Las Vegas,45671,Nevada
+20,Mailing,56 Pick Up Sticks,Carson City,45671,Nevada
+21,Physical,78 A Gate,Denver,87345,Colorado
+21,Mailing,87 A Loo,Boulder,87345,Colorado
+22,Physical,19 Roofit Again,Jackson,98234,Mississippi
+22,Mailing,910 Doit Again,Biloxi,98234,Mississippi
+23,Physical,12 Goto HelloOperator,Dallas,16246,Texas
+23,Mailing,21 Goto,Houston,16246,Texas
+24,Physical,45 Knight Dr,Turkey Creek,92534,Arkansas
+24,Mailing,54 Squire Dr,Little Rock,92534,Arkansas
+25,Physical,245 Horse Ct,Yanker,26563,Rhode Island
+25,Mailing,542 Steed Ct,Providence,26563,Rhode Island
+26,Physical,984 Reeve St,Massachusetts,46571,Massachusetts
+26,Mailing,489 Miller St,Massachusetts,46571,Massachusetts
