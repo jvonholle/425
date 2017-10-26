@@ -49,6 +49,7 @@ create table if not exists Team (
     -- columns
     name varchar(75) not null unique,
     captain int unsigned not null,
+    city varchar(75) not null,
     color varchar(75) not null,
     State_name varchar(75) not null,
     -- keys
