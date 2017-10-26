@@ -230,10 +230,12 @@ delimiter !!
 create trigger player_check before insert on Player
     for each row 
         begin
-            if( exists (select 1 from Coach where Coach.Employee_id = NEW.Employee_id) or
-                exists (select 1 from Official where Official.Employee_id = NEW.Employee_id) ) then
+            if( exists (select 1 from Coach where Coach.Employee_id = NEW.Employee_id)) then
                 signal SQLSTATE value '45000'
-                set MESSAGE_TEXT = 'You can\'t be more than one type of employee';
+                set MESSAGE_TEXT = 'Player exists in Coach table';
+            elseif(exists (select 1 from Official where Official.Employee_id = NEW.Employee_id)) then
+                signal SQLSTATE value '45000'
+                set MESSAGE_TEXT = 'Player exists in Official table';
             end if;
         end!!
 
