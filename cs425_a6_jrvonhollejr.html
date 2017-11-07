@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/workspace/homework/hw5/baseball.sql.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="sql">
+<meta name="settings" content="use_css,pre_wrap,no_foldcolumn,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+* { font-size: 1em; }
+.Comment { color: #8080ff; }
+.Constant { color: #ff6060; }
+.Special { color: #ff40ff; }
+.Statement { color: #ffff00; }
+.Type { color: #00ff00; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+<span class="Comment">-- baseball.sql </span>
+<span class="Comment">-- James R Von Holle</span>
+<span class="Comment">-- Oct 13, 2017</span>
+
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> PERSONNEL (
+    id int,
+    first_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    last_name  <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    birth_date <span class="Type">date</span> <span class="Statement">not</span> <span class="Special">null</span>,
+    birth_place <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>
+);
+
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> COACH (
+    PersonID int <span class="Statement">not</span> <span class="Special">null</span>,
+    Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>),
+    key ix_PERSONEL_id,
+    key ix_TEAM_name,
+    constraint fk_PERSONNEL_id foreign key(PersonID) references PERSONNEL(id),
+    constraint fk_TEAM_name foreign key(Team_name) references TEAM(name)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> UMPIRE (
+    PersonID int <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(PersonID)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> PLAYER (
+    PersonID int <span class="Statement">not</span> <span class="Special">null</span>,
+    batting_average double <span class="Statement">not</span> <span class="Special">null</span>,
+    Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>),
+    Orientation_type <span class="Type">varchar</span>(<span class="Constant">10</span>),
+    primary key (PersonID),
+    constraint fk_Player_Team_idx foreign key(Team_name) references TEAM(name),
+    constraint fk_Player_Orientation_idx foreign key(Orientation_type) references Orientation(<span class="Special">type</span>)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> Orientation (
+    <span class="Special">type</span> <span class="Type">varchar</span>(<span class="Constant">10</span>)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> PITCHER (
+    Player_Personnel_id int <span class="Statement">not</span> <span class="Special">null</span>,
+    ERA double <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key (Player_Personnel_id) references PLAYER(PersonID)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> TEAM (
+    name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span> <span class="Special">unique</span>,
+    city <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    manager int <span class="Statement">not</span> <span class="Special">null</span> <span class="Special">unique</span>,
+    Division_name <span class="Type">varchar</span>(<span class="Constant">45</span>),
+    primary key (name),
+    constraint fk_Team_Personnel1_idx foreign key (),
+    constraint fk_Team_Divison_idx foreign key(Division_name) references DIVISION(name)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> DIVISION (
+    name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    League_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(name),
+    constraint fk_DIVISION_League1_idx foreign key(League_name) references LEAGUE(name)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> LEAGUE (
+    name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span> <span class="Special">unique</span>,
+    primary key(name)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> GAME(
+    Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Home_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    Away_team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(Schedule_date, Home_Team_name, Away_team_name),
+    constraint fk_Game_Away1_idx foreign key(Away_team_name) references AWAY(Team_name),
+    constraint fk_Game_Home1_idx foreign key(Home_Team_name) references HOME(Team_name)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> HOME(
+    Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    runs int <span class="Statement">not</span> <span class="Special">null</span>,
+    hits int <span class="Statement">not</span> <span class="Special">null</span>,
+    errors int <span class="Statement">not</span> <span class="Special">null</span>,
+    Pitcher_Player_PersonID int,
+    primary key(Team_name, Schedule_date),
+    constraint fk_Home_Pitcher1_idx foreign key(Pitcher_Player_PersonID) references PITCHER(Player_Personnel_id)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> AWAY(
+    Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    runs int <span class="Statement">not</span> <span class="Special">null</span>,
+    hits int <span class="Statement">not</span> <span class="Special">null</span>,
+    errors int <span class="Statement">not</span> <span class="Special">null</span>,
+    Pitcher_Player_PersonID int,
+    primary key(Team_name, Schedule_date),
+    constraint fk_Away_Pitcher1_idx foreign key(Pitcher_Player_PersonID) references PITCHER(Player_Personnel_id)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> Game_Umpire (
+    Umpire_Personnel_id int <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Home_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Away_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key (Umpire_Personnel_id),
+    constraint fk_Game_Umpire_Game1_idx foreign key(Game_Away_Team_name, Game_Home_Team_name, Game_Schedule_date) references GAME(key)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> Game_Pitcher(
+    Pitcher_Player_PersonID int <span class="Statement">not</span> <span class="Special">null</span>,
+    Record_type <span class="Type">varchar</span>(<span class="Constant">15</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Home_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(Pitcher_Player_PersonID),
+    constraint fk_Game_Pitcher_Record1_idx foreign key(Record_type) references Record(<span class="Special">type</span>)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> Record (
+    <span class="Special">type</span> <span class="Type">varchar</span>(<span class="Constant">15</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(<span class="Special">type</span>)
+);
+<span class="Statement">create</span> <span class="Special">table</span> <span class="Special">if</span> <span class="Statement">not</span> <span class="Statement">exists</span> Player_Score(
+    Player_Personnel_id int <span class="Statement">not</span> <span class="Special">null</span>,
+    single int,
+    double int,
+    triple int,
+    home_run int,
+    Game_Schedule_date datetime <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Home_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    Game_Away_Team_name <span class="Type">varchar</span>(<span class="Constant">45</span>) <span class="Statement">not</span> <span class="Special">null</span>,
+    primary key(Player_Personnel_id),
+    constraint fk_Game_Statistics_Game1_idx foreign key(Game_Schedule_date) references GAME(Schedule_date)
+);
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

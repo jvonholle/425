@@ -1,0 +1,42 @@
+<!-- James R Von Holle
+     CS 425 HW 8
+     Nov 8 2017
+--->
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://www.example.org/contacts" 
+            targetNamespace="http://www.example.org/humans"
+            elementFormDefault="qualified">
+    
+    <xs:complexType name = "Address">
+        <xs:all>
+            <xs:element name = "street"  type = "xs:string" />
+            <xs:element name = "city"    type = "xs:string" />
+            <xs:element name = "state"   type = "xs:string" />
+            <xs:element name = "zipCode" type = "xs:positiveInteger" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name = "Contact">
+        <xs:all>
+            <xs:element name = "id"      type = "xs:string" />
+            <xs:element name = "name"    type = "xs:string" />
+            <xs:element name = "phone"   type = "Phone" minOccurs="1" maxOccurs="*" />
+            <xs:element name = "address" type = "Address" minOccurs="0" minOccurs="*" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name = "Name">
+        <xs:all>
+            <xs:element name = "first" type = "xs:string" />
+            <xs:element name = "last"  type = "xs:string" />
+            
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name = "Phone">
+        <xs:all>
+            <xs:element name = "number" type = "xs:string" />
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:element name="contactList" type="tns:Contact" />
+
+</xs:schema>
